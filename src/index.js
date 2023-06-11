@@ -1,18 +1,24 @@
 import * as THREE from 'three'
+import { AxesHelper } from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { WEBGL } from './webgl'
 
 if (WEBGL.isWebGLAvailable()) {
   // scene
   const scene = new THREE.Scene()
   scene.background = new THREE.Color(0xffffff)
+  // axesHelper
+  const axesHelper = new THREE.AxesHelper(5)
+  scene.add(axesHelper)
   // camera
   const camera = new THREE.PerspectiveCamera(
-    75,
+    50,
     window.innerWidth / window.innerHeight,
-    0.1,
-    1000
+    1,
+    4000
   )
-  camera.position.z = 2
+  camera.position.set(0, 1000, 10)
+  camera.lookAt(0, 0, 0)
   // renderer
   const renderer = new THREE.WebGLRenderer({
     alpha: true,
@@ -20,39 +26,73 @@ if (WEBGL.isWebGLAvailable()) {
   })
   renderer.setSize(window.innerWidth, window.innerHeight)
   document.body.appendChild(renderer.domElement)
-  // mesh 01
-  const geometry01 = new THREE.BoxGeometry(0.5, 0.5, 0.5)
-  const material01 = new THREE.MeshStandardMaterial({ color: 0xff6200 })
-  const cube01 = new THREE.Mesh(geometry01, material01)
-  cube01.position.x = -1
-  scene.add(cube01)
-  // mesh 02
-  const geometry02 = new THREE.SphereGeometry(0.5, 0.5, 0.5)
-  const material02 = new THREE.MeshStandardMaterial({ color: 0xff6200 })
-  const cube02 = new THREE.Mesh(geometry02, material02)
-  scene.add(cube02)
-  // mesh 03
-  const geometry03 = new THREE.ConeGeometry(0.4, 0.7, 6)
-  const material03 = new THREE.MeshStandardMaterial({ color: 0xff6200 })
-  const cube03 = new THREE.Mesh(geometry03, material03)
-  scene.add(cube03)
-  cube03.position.x = +1
-
-  function render(time) {
-    time *= 0.0005 // convert time to seconds
-
-    cube01.rotation.x = time
-    cube01.rotation.y = time
-    cube02.rotation.x = time
-    cube02.rotation.y = time
-    cube03.rotation.x = time
-    cube03.rotation.y = time
-    renderer.render(scene, camera)
-
-    requestAnimationFrame(render)
+  // control
+  const controls = new OrbitControls(camera, renderer.domElement)
+  controls.enableDamping = true
+  controls.minDistance = 20
+  controls.maxDistance = 800
+  controls.update()
+  // texture
+  const texture_front = new THREE.TextureLoader().load(
+    '../static/star_front.jpg'
+  )
+  const texture_back = new THREE.TextureLoader().load('../static/star_back.jpg')
+  const texture_up = new THREE.TextureLoader().load('../static/star_up.jpg')
+  const texture_down = new THREE.TextureLoader().load('../static/star_down.jpg')
+  const texture_right = new THREE.TextureLoader().load(
+    '../static/star_right.jpg'
+  )
+  const texture_left = new THREE.TextureLoader().load('../static/star_left.jpg')
+  // mesh
+  const skyGeometry = new THREE.BoxGeometry(400, 400, 400)
+  const skyMaterialArray = []
+  skyMaterialArray.push(
+    new THREE.MeshStandardMaterial({
+      map: texture_front,
+    })
+  )
+  skyMaterialArray.push(
+    new THREE.MeshStandardMaterial({
+      map: texture_back,
+    })
+  )
+  skyMaterialArray.push(
+    new THREE.MeshStandardMaterial({
+      map: texture_up,
+    })
+  )
+  skyMaterialArray.push(
+    new THREE.MeshStandardMaterial({
+      map: texture_down,
+    })
+  )
+  skyMaterialArray.push(
+    new THREE.MeshStandardMaterial({
+      map: texture_right,
+    })
+  )
+  skyMaterialArray.push(
+    new THREE.MeshStandardMaterial({
+      map: texture_left,
+    })
+  )
+  for (let i = 0; i < 6; i++) {
+    skyMaterialArray[i].side = THREE.BackSide
   }
-  requestAnimationFrame(render)
-
+  const sky = new THREE.Mesh(skyGeometry, skyMaterialArray)
+  scene.add(sky)
+  // light
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8)
+  scene.add(ambientLight)
+  // animate
+  function animate(time) {
+    time *= 0.0001
+    sky.rotation.x = time
+    sky.rotation.y = time
+    requestAnimationFrame(animate)
+    renderer.render(scene, camera)
+  }
+  animate()
   // resize
   function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight
