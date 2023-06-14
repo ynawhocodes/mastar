@@ -4,7 +4,7 @@ module.exports = {
     mode: 'production',
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist/public'),
+        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
     },
     performance: {
@@ -12,7 +12,7 @@ module.exports = {
         maxAssetSize: 1024000
     },
     devServer: {
-        publicPath: '/dist/public/',
+        publicPath: '/public/',
         compress: true,
         port: 9000,
         hot: true,
