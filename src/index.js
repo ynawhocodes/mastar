@@ -4,9 +4,16 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { WEBGL } from './webgl'
 
 if (WEBGL.isWebGLAvailable()) {
+  // fog
+  const FogColor = 0x004fff
+  const objColor = 0xffffff
+  const FloorColor = 0x555555
   // scene
   const scene = new THREE.Scene()
-  scene.background = new THREE.Color(0xffffff)
+  scene.background = new THREE.Color(objColor)
+  // scene.fog = new THREE.Fog(FogColor, 2, 8)
+  scene.fog = new THREE.FogExp2(objColor, 0.001)
+
   // axesHelper
   const axesHelper = new THREE.AxesHelper(5)
   scene.add(axesHelper)
@@ -19,6 +26,13 @@ if (WEBGL.isWebGLAvailable()) {
   )
   camera.position.set(0, 1000, 10)
   camera.lookAt(0, 0, 0)
+  // floor
+  const planeGeometry = new THREE.PlaneGeometry(30, 30, 1, 1)
+  const planeMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 })
+  const plane = new THREE.Mesh(planeGeometry, planeMaterial)
+  plane.rotation.x = -0.5 * Math.PI
+  plane.position.y = -0.5
+  scene.add(plane)
   // renderer
   const renderer = new THREE.WebGLRenderer({
     alpha: true,
@@ -29,8 +43,8 @@ if (WEBGL.isWebGLAvailable()) {
   // control
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true
-  controls.minDistance = 20
-  controls.maxDistance = 800
+  controls.minDistance = 10
+  controls.maxDistance = 1000
   controls.update()
   // texture
   const texture_front = new THREE.TextureLoader().load(
@@ -44,7 +58,7 @@ if (WEBGL.isWebGLAvailable()) {
   )
   const texture_left = new THREE.TextureLoader().load('./static/star_left.jpg')
   // mesh
-  const skyGeometry = new THREE.BoxGeometry(400, 400, 400)
+  const skyGeometry = new THREE.BoxGeometry(500, 500, 500)
   const skyMaterialArray = []
   skyMaterialArray.push(
     new THREE.MeshStandardMaterial({
