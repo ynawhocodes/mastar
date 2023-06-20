@@ -5,14 +5,14 @@ import { WEBGL } from './webgl'
 
 if (WEBGL.isWebGLAvailable()) {
   // fog
-  const FogColor = 0x004fff
+  const FogColor = 0xffffff
   const objColor = 0xffffff
   const FloorColor = 0x555555
   // scene
   const scene = new THREE.Scene()
   scene.background = new THREE.Color(objColor)
-  // scene.fog = new THREE.Fog(FogColor, 2, 8)
-  scene.fog = new THREE.FogExp2(objColor, 0.001)
+  scene.fog = new THREE.Fog(FogColor, 1, 80)
+  scene.fog = new THREE.FogExp2(FogColor, 0.00035)
 
   // axesHelper
   const axesHelper = new THREE.AxesHelper(5)
