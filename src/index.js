@@ -19,7 +19,7 @@ if (WEBGL.isWebGLAvailable()) {
   scene.add(axesHelper)
   // camera
   const camera = new THREE.PerspectiveCamera(
-    50,
+    70,
     window.innerWidth / window.innerHeight,
     1,
     4000
