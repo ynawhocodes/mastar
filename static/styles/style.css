@@ -2,6 +2,18 @@
   font-family: 'Nanum Myeongjo', serif;
 }
 
+/* .container {
+  mix-blend-mode: difference;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(231 0 0);
+  z-index: 30;
+  pointer-events: none;
+} */
+
 .top {
   position: fixed;
   top: 5%;
@@ -23,15 +35,6 @@
   left: 0%;
   transform: translate(0%, -50%);
   line-height: 0.5rem;
-  margin: 0 30px;
-}
-
-.title {
-  position: fixed;
-  top: 80%;
-  left: 0%;
-  transform: translate(0%, -100%);
-  font-size: 5rem;
   margin: 0 30px;
 }
 
@@ -57,4 +60,70 @@
   @media (max-width: 575px) {
     font-size: 1.8rem;
   }
+}
+
+#draggable {
+  position: absolute;
+  cursor: grab;
+}
+
+.star03 {
+  top: 10%;
+  left: 50%;
+}
+.star04 {
+  top: 3%;
+  left: 28%;
+}
+.star05 {
+  top: 1%;
+  left: 82%;
+}
+.star06 {
+  top: 6%;
+  left: 10%;
+}
+.star07 {
+  top: 90%;
+  left: 30%;
+}
+.star08 {
+  top: 80%;
+  left: 20%;
+}
+.star09 {
+  top: 70%;
+  left: 72%;
+}
+.star10 {
+  top: 80%;
+  left: 42%;
+}
+.star11 {
+  top: 50%;
+  left: 72%;
+}
+.star12 {
+  top: 40%;
+  left: 22%;
+}
+.star13 {
+  top: 60%;
+  left: 2%;
+}
+
+.star__wrapper {
+  position: absolute;
+  z-index: 10;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 100%;
+  mix-blend-mode: difference;
+}
+
+.star__layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
 }
