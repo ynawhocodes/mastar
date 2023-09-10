@@ -1,29 +1,38 @@
 * {
   font-family: 'Nanum Myeongjo', serif;
+  /* background-color: white;
+  mix-blend-mode: difference; */
+  color: #fff;
 }
 
-/* .container {
+*::selection {
+  background-color: transparent;
+}
+
+.container {
   mix-blend-mode: difference;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(231 0 0);
-  z-index: 30;
+  background: rgb(231,0,0);
   pointer-events: none;
-} */
+}
 
 .top {
   position: fixed;
   top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  line-height: 0.5rem;
   text-align: center;
+  /* mix-blend-mode: difference;
+  background-color: white; */
 }
 
 .content {
+  /* mix-blend-mode: difference;
+  background-color: white; */
   @media (max-width: 575px) {
     font-size: 0.8rem;
   }
@@ -34,8 +43,9 @@
   top: 12%;
   left: 0%;
   transform: translate(0%, -50%);
-  line-height: 0.5rem;
   margin: 0 30px;
+  /* mix-blend-mode: difference;
+  background-color: white; */
 }
 
 .words {
@@ -67,9 +77,17 @@
   cursor: grab;
 }
 
+.star01 {
+  top: 23%;
+  left: 90%;
+}
+.star02 {
+  top: 19%;
+  left: 59%;
+}
 .star03 {
-  top: 10%;
-  left: 50%;
+  top: 60%;
+  left: 20%;
 }
 .star04 {
   top: 3%;
@@ -106,10 +124,6 @@
 .star12 {
   top: 40%;
   left: 22%;
-}
-.star13 {
-  top: 60%;
-  left: 2%;
 }
 
 .star__wrapper {
