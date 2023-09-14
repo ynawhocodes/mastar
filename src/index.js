@@ -48,15 +48,15 @@ if (WEBGL.isWebGLAvailable()) {
   controls.update()
   // texture
   const texture_front = new THREE.TextureLoader().load(
-    './static/star_front.jpg'
+    './static/textures/star/star_front.jpg'
   )
-  const texture_back = new THREE.TextureLoader().load('./static/star_back.jpg')
-  const texture_up = new THREE.TextureLoader().load('./static/star_up.jpg')
-  const texture_down = new THREE.TextureLoader().load('./static/star_down.jpg')
+  const texture_back = new THREE.TextureLoader().load('./static/textures/star/star_back.jpg')
+  const texture_up = new THREE.TextureLoader().load('./static/textures/star/star_up.jpg')
+  const texture_down = new THREE.TextureLoader().load('./static/textures/star/star_down.jpg')
   const texture_right = new THREE.TextureLoader().load(
-    './static/star_right.jpg'
+    './static/textures/star/star_right.jpg'
   )
-  const texture_left = new THREE.TextureLoader().load('./static/star_left.jpg')
+  const texture_left = new THREE.TextureLoader().load('./static/textures/star/star_left.jpg')
   // mesh
   const skyGeometry = new THREE.BoxGeometry(500, 500, 500)
   const skyMaterialArray = []
