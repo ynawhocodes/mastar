@@ -1,8 +1,8 @@
 * {
   font-family: 'Nanum Myeongjo', serif;
-  background-color: white;
-  mix-blend-mode: difference;
-  /* color: #fff; */
+  /* background-color: white;
+  mix-blend-mode: difference; */
+  color: #fff;
 }
 
 *::selection {
@@ -21,7 +21,7 @@ p {
   mix-blend-mode: difference;
 }
 
-/* .container {
+.container {
   mix-blend-mode: difference;
   position: fixed;
   top: 0;
@@ -30,7 +30,7 @@ p {
   height: 100%;
   background: rgb(231,0,0);
   pointer-events: none;
-} */
+}
 
 .top {
   position: fixed;
