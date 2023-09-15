@@ -53,22 +53,22 @@ if (WEBGL.isWebGLAvailable()) {
   controls.update();
 
   let texture_front = new THREE.TextureLoader().load(
-    "./static/textures/star/star_front.jpg"
+    "./static/textures/meadow/meadow_front.jpg"
   );
   let texture_back = new THREE.TextureLoader().load(
-    "./static/textures/star/star_back.jpg"
+    "./static/textures/meadow/meadow_back.jpg"
   );
   let texture_up = new THREE.TextureLoader().load(
-    "./static/textures/star/star_up.jpg"
+    "./static/textures/meadow/meadow_up.jpg"
   );
   let texture_down = new THREE.TextureLoader().load(
-    "./static/textures/star/star_down.jpg"
+    "./static/textures/meadow/meadow_down.jpg"
   );
   let texture_right = new THREE.TextureLoader().load(
-    "./static/textures/star/star_right.jpg"
+    "./static/textures/meadow/meadow_right.jpg"
   );
   let texture_left = new THREE.TextureLoader().load(
-    "./static/textures/star/star_left.jpg"
+    "./static/textures/meadow/meadow_left.jpg"
   );
 
   // mesh
