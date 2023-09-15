@@ -12,8 +12,8 @@ if (WEBGL.isWebGLAvailable()) {
   // scene
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(objColor);
-  // scene.fog = new THREE.Fog(FogColor, 1, 80);
-  // scene.fog = new THREE.FogExp2(FogColor, 0.00035);
+  scene.fog = new THREE.Fog(FogColor, 1, 80);
+  scene.fog = new THREE.FogExp2(FogColor, 0.00035);
 
   // axesHelper
   // const axesHelper = new THREE.AxesHelper(5)
@@ -53,22 +53,22 @@ if (WEBGL.isWebGLAvailable()) {
   controls.update();
 
   let texture_front = new THREE.TextureLoader().load(
-    "./static/textures/meadow/meadow_front.jpg"
+    "./static/textures/star/star_front.jpg"
   );
   let texture_back = new THREE.TextureLoader().load(
-    "./static/textures/meadow/meadow_back.jpg"
+    "./static/textures/star/star_back.jpg"
   );
   let texture_up = new THREE.TextureLoader().load(
-    "./static/textures/meadow/meadow_up.jpg"
+    "./static/textures/star/star_up.jpg"
   );
   let texture_down = new THREE.TextureLoader().load(
-    "./static/textures/meadow/meadow_down.jpg"
+    "./static/textures/star/star_down.jpg"
   );
   let texture_right = new THREE.TextureLoader().load(
-    "./static/textures/meadow/meadow_right.jpg"
+    "./static/textures/star/star_right.jpg"
   );
   let texture_left = new THREE.TextureLoader().load(
-    "./static/textures/meadow/meadow_left.jpg"
+    "./static/textures/star/star_left.jpg"
   );
 
   // mesh

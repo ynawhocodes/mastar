@@ -1,8 +1,8 @@
 * {
   font-family: 'Nanum Myeongjo', serif;
-  /* background-color: white; */
-  /* mix-blend-mode: difference; */
-  color: #fff;
+  background-color: white;
+  mix-blend-mode: difference;
+  /* color: #fff; */
 }
 
 *::selection {
@@ -14,7 +14,7 @@ img {
 }
 
 p {
-  color: rgb(0, 205, 198);
+  /* color: rgb(0, 205, 198); */
 }
 
 .top, .words, .project {
