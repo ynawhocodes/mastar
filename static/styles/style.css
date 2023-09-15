@@ -1,12 +1,24 @@
 * {
   font-family: 'Nanum Myeongjo', serif;
-  background-color: white;
-  mix-blend-mode: difference;
-  /* color: #fff; */
+  /* background-color: white; */
+  /* mix-blend-mode: difference; */
+  color: #fff;
 }
 
 *::selection {
   background-color: transparent;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+p {
+  color: rgb(0, 205, 198);
+}
+
+.top, .words, .project {
+  mix-blend-mode: difference;
 }
 
 /* .container {
@@ -72,10 +84,10 @@
   }
 }
 
-#draggable {
+/* .draggable {
   position: absolute;
   cursor: grab;
-}
+} */
 
 .star01 {
   top: 23%;
@@ -94,7 +106,7 @@
   left: 28%;
 }
 .star05 {
-  top: 1%;
+  top: 10%;
   left: 82%;
 }
 .star06 {
@@ -135,17 +147,26 @@
   mix-blend-mode: difference;
 }
 
-.star__layer {
+/* .star__layer {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 100%;
-}
+} */
 
 .type {
   position: fixed;
   top: 4%;
-  left: 0%;
+  right: 0%;
   transform: translate(0%, -50%);
   margin: 0 30px;
+}
+
+.type__button {
+  all: unset;
+  text-decoration: underline;
+  font-size: 1rem;
+  @media (max-width: 575px) {
+    font-size: 0.5rem;
+  }
 }

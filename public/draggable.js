@@ -1,8 +1,6 @@
-console.log("here");
 document.addEventListener("DOMContentLoaded", function () {
   // 여기에 드래그 가능한 요소에 대한 코드를 추가합니다.
   const draggableElements = document.querySelectorAll(".draggable");
-  console.log("draggableElements", draggableElements);
   draggableElements.forEach((element) => {
     let offsetX, offsetY;
     let isDragging = false;
